@@ -1,0 +1,1831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta name="Generator" content="ECSHOP v2.7.3" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="Keywords" content="爱农场商城" />
+		<meta name="Description" content="ifarm.com" />
+
+		<title>爱农场商城</title>
+
+		<link reicol="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" href="css/skitter.styles.min.css">
+		<link rel="stylesheet" type="text/css" href="css/gift_view.css">
+
+		<style type="text/css">
+			.allsort .mc {
+				display: block !important;
+			}
+		</style>
+
+		<!--[if lte IE 7]>
+        <script>window.location.href='http://78rg9i.com1.z0.glb.clouddn.com/ie6.html?referrer='+location.href;</script>
+    <![endif]-->
+	</head>
+
+	<body>
+
+		<link rel="stylesheet" href="css/base.css" />
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/hover-min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/common.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/jquery.alerts.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$('li').hover(function() {
+					$(this).addClass('ons');
+				}, function() {
+					$(this).removeClass('ons');
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			window.onbeforeunload = function() {
+				$.ajax({
+					url: "stat.php",
+					type: "POST",
+					data: "access_url=",
+					async: true
+				});
+			};
+			$(document).ready(function() {
+				$("#AddFavorite").click(function() {
+					jAlert('请使用浏览器快捷键Ctrl+D来完成收藏', '温馨提示', function(r) {
+						obj.focus();
+					});
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			(function($) {
+				$.fn.hoverForIE6 = function(option) {
+					var s = $.extend({
+						current: "hover",
+						delay: 10
+					}, option || {});
+					$.each(this, function() {
+						var timer1 = null,
+							timer2 = null,
+							flag = false;
+						$(this).bind("mouseover", function() {
+							if(flag) {
+								clearTimeout(timer2);
+							} else {
+								var _this = $(this);
+								timer1 = setTimeout(function() {
+									_this.addClass(s.current);
+									flag = true;
+								}, s.delay);
+							}
+						}).bind("mouseout", function() {
+							if(flag) {
+								var _this = $(this);
+								timer2 = setTimeout(function() {
+									_this.removeClass(s.current);
+									flag = false;
+								}, s.delay);
+							} else {
+								clearTimeout(timer1);
+							}
+						});
+					});
+				};
+			})(jQuery);
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".allsort").hoverForIE6({
+					current: "allsorthover",
+					delay: 0
+				});
+				$(".allsort .item").hoverForIE6({
+					delay: 0
+				});
+			});
+		</script>
+		<div class="g-hd">
+
+			<div class="m-top">
+				<div class="container">
+
+					<div class="lf">
+						<span>Hi,欢迎光临爱农场商城!</span>
+						<ul>
+							<li id="top_leftsidebar_member_info"><span id="append_parent"></span> &nbsp;
+
+							</li>
+							<li id="top_rightsidebar_member_info_link"><span id="append_parent"></span>
+
+								<a href="user.php?act=login">请您登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="user.php?act=register">免费注册</a>
+							</li>
+							<li>|
+								<a id="AddFavorite" rel="nofollow" href="javascript:;"><i class="fa fa-star-o"></i> 收藏网站</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="rg">
+						<ul>
+							<li>
+								<a href="user.php?act=default">我的商城 <i class="fa fa-caret-down"></i></a>|
+								<div class="show">
+									<p>
+										<a href="user.php?act=order_list">已买到的商品</a>
+									</p>
+									<p>
+										<a href="user.php?act=collection_list">我的收藏</a>
+									</p>
+								</div>
+							</li>
+							<!--<li><a href="javascript:;"><i class="fa fa-mobile"></i> 手机版</a>|
+                        <div class="em"><img src="themes/hd/images/liantu.png" alt="中国农产品商城_手机版"></div>
+                    </li>-->
+							<li><i class="fa fa-phone"></i> 客服电话: <span>15320130525</span></li>
+							<!--<li>|<a href="">帮助中心</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="m-head">
+				<div class="container">
+
+					<div class="logo">
+						<a href="/"><img src="img/logo.png" alt="Ifarm"></a>
+					</div>
+
+					<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+						<div class="form">
+							<input onkeydown="if (event.keycode==13) {formsubmit()}" id='searchinput' onfocus="if (this.value =='针织衫'){this.value=''}" name="keywords" type="text" placeholder="柠檬">
+							<button onclick="javascript:formsubmit()" name="searchbtn" type="submit">搜索</button>
+						</div>
+						<p>
+							<a href="search.php?keywords=%E9%A6%99%E8%8F%87">香菇</a>
+							<a href="search.php?keywords=%E9%9D%92%E6%A4%92">青椒</a>
+							<a href="search.php?keywords=%E8%8A%92%E6%9E%9C">芒果</a>
+						</p>
+					</form>
+
+					<a href="cart.html" class="cart"><i class="fa fa-cart-plus"></i> 我的购物车 <i class="fa fa-angle-right"></i> <span>0</span></a>
+				</div>
+				<div id="ECS_CARTINFO" style="display:none;">
+
+					<div class="hd_shopping">
+						<a class="nou font14 pay_car" href="javascript:;">
+							<img class="fl" src="img/img-icon/cart.gif" width="28" height="28" />
+							<span class="fl" style="font-size:14px;">&nbsp;&nbsp;去购物车结算&nbsp;</span>
+						</a>
+						<b class="clof center" id="head_cart_num">0</b>
+					</div>
+					<div class="center cart_content_null" id="thumb_cart" style="display:none">
+						<p style="padding:10px;">购物车中还没有商品，<br> 快去挑选心爱的商品吧！
+						</p>
+					</div>
+					<script type="text/javascript">
+						function deleteCartGoods(rec_id) {
+
+							jConfirm('确定删除该商品吗?', '温馨提示', function(r) {
+								if(r) {
+									Ajax.call('delete_cart_goods.php', 'id=' + rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+								}
+							});
+						}
+
+						/**
+						 * 接收返回的信息
+						 */
+						function deleteCartGoodsResponse(res) {
+							if(res.error) {
+								jAlert(res.err_msg);
+							} else {
+								document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+								if(document.getElementById('ECS_CARTINFO2')) {
+									document.getElementById('ECS_CARTINFO2').innerHTML = res.content2;
+								}
+								if(document.getElementById('mini_cart_number')) {
+									document.getElementById('mini_cart_number').innerHTML = res.cart_number;
+								}
+								if(document.getElementById('mini_cart_number2')) {
+									document.getElementById('mini_cart_number2').innerHTML = res.cart_number;
+								}
+							}
+						}
+					</script>
+
+				</div>
+			</div>
+
+			<div class="m-nav">
+				<div class="container sbs">
+
+					<div class="alllst">
+						<div class="allsort">
+							<div class='mt'>
+								<a class="clink" href="/">全部商品分类</a>
+							</div>
+
+							<div class='mc'>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp1"><a href="category.php?id=121">蔬菜</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=127">叶菜类</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=128">根茎类</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=161">果菜类</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=127">叶菜类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=130">卷心菜</a></em>
+													<em><a href="category.php?id=131">大白菜</a></em>
+													<em><a href="category.php?id=132">娃娃菜</a></em>
+													<em><a href="category.php?id=133">苦菊</a></em>
+													<em><a href="category.php?id=134">韭菜</a></em>
+													<em><a href="category.php?id=135">菠菜</a></em>
+													<em><a href="category.php?id=136">蒜苗</a></em>
+													<em><a href="category.php?id=137">空心菜</a></em>
+													<em><a href="category.php?id=138">油麦菜</a></em>
+													<em><a href="category.php?id=139">芹菜</a></em>
+													<em><a href="category.php?id=140">生菜</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=128">根茎类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=141">芋头</a></em>
+													<em><a href="category.php?id=142">蒜</a></em>
+													<em><a href="category.php?id=143">菱角</a></em>
+													<em><a href="category.php?id=144">绿豆芽</a></em>
+													<em><a href="category.php?id=145">红薯</a></em>
+													<em><a href="category.php?id=146">莴苣</a></em>
+													<em><a href="category.php?id=147">洋葱</a></em>
+													<em><a href="category.php?id=148">大葱</a></em>
+													<em><a href="category.php?id=149">豆苗</a></em>
+													<em><a href="category.php?id=150">白萝卜</a></em>
+													<em><a href="category.php?id=151">紫薯</a></em>
+													<em><a href="category.php?id=152">青萝卜</a></em>
+													<em><a href="category.php?id=153">生姜</a></em>
+													<em><a href="category.php?id=154">小葱</a></em>
+													<em><a href="category.php?id=155">荸荠</a></em>
+													<em><a href="category.php?id=156">胡萝卜</a></em>
+													<em><a href="category.php?id=157">黄豆芽</a></em>
+													<em><a href="category.php?id=158">土豆</a></em>
+													<em><a href="category.php?id=159">西兰花</a></em>
+													<em><a href="category.php?id=160">莲藕</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=161">果菜类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=162">苦瓜</a></em>
+													<em><a href="category.php?id=163">冬瓜</a></em>
+													<em><a href="category.php?id=164">杭椒</a></em>
+													<em><a href="category.php?id=165">菜椒</a></em>
+													<em><a href="category.php?id=166">扁豆</a></em>
+													<em><a href="category.php?id=167">黄瓜</a></em>
+													<em><a href="category.php?id=168">茄子</a></em>
+													<em><a href="category.php?id=169">朝天椒</a></em>
+													<em><a href="category.php?id=170">青椒</a></em>
+													<em><a href="category.php?id=171">芸豆</a></em>
+													<em><a href="category.php?id=172">番茄</a></em>
+													<em><a href="category.php?id=173">南瓜</a></em>
+													<em><a href="category.php?id=174">尖椒</a></em>
+													<em><a href="category.php?id=175">黄花菜</a></em>
+													<em><a href="category.php?id=176">蒜苔</a></em>
+													<em><a href="category.php?id=323">芋头</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp2"><a href="category.php?id=122">水果</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=177">国产水果</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=178">进口水果</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=177">国产水果</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=179">苹果</a></em>
+													<em><a href="category.php?id=180">香蕉</a></em>
+													<em><a href="category.php?id=181">芒果</a></em>
+													<em><a href="category.php?id=182">葡萄</a></em>
+													<em><a href="category.php?id=183">橘子</a></em>
+													<em><a href="category.php?id=184">柠檬</a></em>
+													<em><a href="category.php?id=185">桃</a></em>
+													<em><a href="category.php?id=186">木瓜</a></em>
+													<em><a href="category.php?id=187">梨</a></em>
+													<em><a href="category.php?id=188">柚子</a></em>
+													<em><a href="category.php?id=189">车厘子/樱桃</a></em>
+													<em><a href="category.php?id=190">奇异果</a></em>
+													<em><a href="category.php?id=191">牛油果</a></em>
+													<em><a href="category.php?id=192">李子</a></em>
+													<em><a href="category.php?id=193">枇杷</a></em>
+													<em><a href="category.php?id=194">荔枝</a></em>
+													<em><a href="category.php?id=195">榴莲</a></em>
+													<em><a href="category.php?id=196">山竹</a></em>
+													<em><a href="category.php?id=197">哈密瓜</a></em>
+													<em><a href="category.php?id=198">蓝莓</a></em>
+													<em><a href="category.php?id=199">小番茄</a></em>
+													<em><a href="category.php?id=322">番茄</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=178">进口水果</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=200">牛油果</a></em>
+													<em><a href="category.php?id=201">火龙果</a></em>
+													<em><a href="category.php?id=202">芒果</a></em>
+													<em><a href="category.php?id=203">车厘子</a></em>
+													<em><a href="category.php?id=204">葡萄/提子</a></em>
+													<em><a href="category.php?id=205">山竹</a></em>
+													<em><a href="category.php?id=206">椰子</a></em>
+													<em><a href="category.php?id=207">榴莲</a></em>
+													<em><a href="category.php?id=208">柠檬</a></em>
+													<em><a href="category.php?id=209">李子</a></em>
+													<em><a href="category.php?id=210">释迦</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp3"><a href="category.php?id=123">冷链</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=219">鸡副</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=220">鸭副</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=221">海鲜</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=222">兔副</a></li>
+                                                                                                                                                                                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=219">鸡副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=225">鸡边腿</a></em>
+													<em><a href="category.php?id=226">琵琶腿150g以上</a></em>
+													<em><a href="category.php?id=227">琵琶腿120～130g</a></em>
+													<em><a href="category.php?id=228">琵琶腿80～100g</a></em>
+													<em><a href="category.php?id=229">琵琶腿100～120g</a></em>
+													<em><a href="category.php?id=230">凤爪</a></em>
+													<em><a href="category.php?id=231">鸡翅根</a></em>
+													<em><a href="category.php?id=232">鸡胸肉</a></em>
+													<em><a href="category.php?id=233">鸡腿排</a></em>
+													<em><a href="category.php?id=234">鸡架</a></em>
+													<em><a href="category.php?id=235">翅尖</a></em>
+													<em><a href="category.php?id=236">红太阳鸡排翅</a></em>
+													<em><a href="category.php?id=237">三黄鸡5只或6只</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=220">鸭副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=238">鑫珂半边鸭</a></em>
+													<em><a href="category.php?id=239">金线半片鸭</a></em>
+													<em><a href="category.php?id=240">六和半片鸭</a></em>
+													<em><a href="category.php?id=241">鸭胸肉</a></em>
+													<em><a href="category.php?id=242">鸭翅根</a></em>
+													<em><a href="category.php?id=243">鸭边腿</a></em>
+													<em><a href="category.php?id=244">鸭掌L</a></em>
+													<em><a href="category.php?id=245">鸭食带</a></em>
+													<em><a href="category.php?id=246">鸭心</a></em>
+													<em><a href="category.php?id=247">六和鸭肫M</a></em>
+													<em><a href="category.php?id=248">板鸭</a></em>
+													<em><a href="category.php?id=249">荣顺鸭肫</a></em>
+													<em><a href="category.php?id=250">鸭肠</a></em>
+													<em><a href="category.php?id=251">去皮鸭胸</a></em>
+													<em><a href="category.php?id=252">鸭腿</a></em>
+													<em><a href="category.php?id=253">白条鸭2.5斤</a></em>
+													<em><a href="category.php?id=254">白条鸭2.9斤</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=221">海鲜</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=255">棒棒鱼</a></em>
+													<em><a href="category.php?id=256">带鱼150/200</a></em>
+													<em><a href="category.php?id=257">带鱼200/300</a></em>
+													<em><a href="category.php?id=258">带鱼段</a></em>
+													<em><a href="category.php?id=259">龙利鱼</a></em>
+													<em><a href="category.php?id=260">鱿鱼头</a></em>
+													<em><a href="category.php?id=261">白灼虾</a></em>
+													<em><a href="category.php?id=262">青虾8/12</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=222">兔副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=263">兔子</a></em>
+													<em><a href="category.php?id=264">鲜兔</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=223">猪牛副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=265">猪小排</a></em>
+													<em><a href="category.php?id=266">腊肉</a></em>
+													<em><a href="category.php?id=267">猪手</a></em>
+													<em><a href="category.php?id=268">毛毛肉</a></em>
+													<em><a href="category.php?id=269">熟肥肠</a></em>
+													<em><a href="category.php?id=270">连肝肉 格子肉</a></em>
+													<em><a href="category.php?id=271">去耳头皮</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=224">半成品</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=272">土豆粉</a></em>
+													<em><a href="category.php?id=273">玉米粒</a></em>
+													<em><a href="category.php?id=274">玉米棒</a></em>
+													<em><a href="category.php?id=275">青豆仁</a></em>
+													<em><a href="category.php?id=276">超霸鸡排</a></em>
+													<em><a href="category.php?id=277">鸡米花</a></em>
+													<em><a href="category.php?id=278">无骨鸡柳</a></em>
+													<em><a href="category.php?id=279">黄金脆</a></em>
+													<em><a href="category.php?id=280">骨肉相连</a></em>
+													<em><a href="category.php?id=281">40g狮子头</a></em>
+													<em><a href="category.php?id=282">牛、鸡、鱼肉丸</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp4"><a href="category.php?id=124">干副</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=211">干蔬</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=324">海鲜</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=211">干蔬</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=212">海带</a></em>
+													<em><a href="category.php?id=213">黄花菜</a></em>
+													<em><a href="category.php?id=214">银耳</a></em>
+													<em><a href="category.php?id=215">木耳</a></em>
+													<em><a href="category.php?id=216">猴头菇</a></em>
+													<em><a href="category.php?id=217">紫菜</a></em>
+													<em><a href="category.php?id=218">香菇</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=324">海鲜</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=325">虾皮</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp5"><a href="category.php?id=125">粮油</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=283">食用油</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=284">大米</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=285">调味品</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=286">副食杂粮</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=283">食用油</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=287">色拉油</a></em>
+													<em><a href="category.php?id=288">菜籽油</a></em>
+													<em><a href="category.php?id=289">小榨油</a></em>
+													<em><a href="category.php?id=290">芝麻油</a></em>
+													<em><a href="category.php?id=291">大豆油</a></em>
+													<em><a href="category.php?id=292">花生油</a></em>
+													<em><a href="category.php?id=293">调和油</a></em>
+													<em><a href="category.php?id=327">玉米油</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=284">大米</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=308">国产大米</a></em>
+													<em><a href="category.php?id=309">泰国香米</a></em>
+													<em><a href="category.php?id=310">糙米</a></em>
+													<em><a href="category.php?id=311">黑米</a></em>
+													<em><a href="category.php?id=312">糯米</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=285">调味品</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=294">鸡精</a></em>
+													<em><a href="category.php?id=295">味精</a></em>
+													<em><a href="category.php?id=296">豆瓣</a></em>
+													<em><a href="category.php?id=297">酱油</a></em>
+													<em><a href="category.php?id=298">食用盐</a></em>
+													<em><a href="category.php?id=299">料酒</a></em>
+													<em><a href="category.php?id=300">古醋</a></em>
+													<em><a href="category.php?id=301">白糖</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=286">副食杂粮</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=302">黄豆</a></em>
+													<em><a href="category.php?id=303">绿豆</a></em>
+													<em><a href="category.php?id=304">红豆</a></em>
+													<em><a href="category.php?id=305">花生</a></em>
+													<em><a href="category.php?id=306">玉米</a></em>
+													<em><a href="category.php?id=307">糯米</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp6"><a href="category.php?id=126">种子</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=313">各类种子</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=313">各类种子</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=314">蔬菜种子</a></em>
+													<em><a href="category.php?id=315">观花种子</a></em>
+													<em><a href="category.php?id=316">观果种子</a></em>
+													<em><a href="category.php?id=317">观叶种子</a></em>
+													<em><a href="category.php?id=318">香草种子</a></em>
+													<em><a href="category.php?id=319">垂吊花卉</a></em>
+													<em><a href="category.php?id=320">林木种子</a></em>
+													<em><a href="category.php?id=321">芽苗菜</a></em>
+													<em><a href="category.php?id=328">阳台种子</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ul class="nav">
+						<li>
+							<a class="hvr-bounce-to-top" href="/">首页</a><span class="h1"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=hot">热销商品</a><span class="h2"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=best">精品促销</a><span class="h3"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=new">新品上市</a><span class="h4"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=promotion">限时抢购</a><span class="h5"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=shipping">包邮商品</a><span class="h6"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="exchange.php">积分商城</a><span class="h7"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="/article.php?id=52">种植基地</a><span class="h8"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+
+		<div class="g-bd">
+
+			<div class="box_banner">
+				<div class="box_skitter box_skitter_large">
+					<ul>
+
+						<li>
+							<a href="http://www.cnncp.net/goods.php?id=301" target="_blank"><img src="data/big-afficheimg/20160623hfxtmq.jpg" alt="" /></a>
+						</li>
+						<li>
+							<a href="http://www.cnncp.net/goods.php?id=275" target="_blank"><img src="data/big-afficheimg/20160623deejot.jpg" alt="" /></a>
+						</li>
+						<li>
+							<a href="http://www.cnncp.net/goods.php?id=273" target="_blank"><img src="data/big-afficheimg/20160623cwhbhn.jpg" alt="" /></a>
+						</li>
+						<li>
+							<a href="http://www.cnncp.net/goods.php?id=275" target="_blank"><img src="data/big-afficheimg/20160623jmwnud.jpg" alt="" /></a>
+						</li>
+						<li>
+							<a href="http://www.cnncp.net/goods.php?id=299" target="_blank"><img src="data/big-afficheimg/20160623ivfgit.jpg" alt="" /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container">
+
+				<div class="m-gao">
+
+					<div class="lf">
+						<ul>
+
+							<li>
+								<a href='affiche.php?ad_id=35&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D273' target='_blank'><img src='data/min-afficheimg/1466662879177349037.jpg' width='240' height='400' border='0' /></a>
+							</li>
+
+						</ul>
+					</div>
+
+					<div class="md">
+						<ul>
+
+							<li>
+								<a href='affiche.php?ad_id=38&amp;uri=http%3A%2F%2F1528306970.s2.shop.iwanqi.cn%2Fgoods.php%3Fid%3D277' target='_blank'><img src='data/min-afficheimg/1466662939530855298.jpg' width='240' height='200' border='0' /></a>
+							</li>
+							<li>
+								<a href='affiche.php?ad_id=37&amp;uri=http%3A%2F%2F1528306970.s2.shop.iwanqi.cn%2Fgoods.php%3Fid%3D275' target='_blank'><img src='data/min-afficheimg/1466662919085312209.jpg' width='240' height='200' border='0' /></a>
+							</li>
+							<li>
+								<a href='affiche.php?ad_id=39&amp;uri=http%3A%2F%2F1528306970.s2.shop.iwanqi.cn%2Fgoods.php%3Fid%3D277' target='_blank'><img src='data/min-afficheimg/1466662954930660386.jpg' width='240' height='200' border='0' /></a>
+							</li>
+							<li>
+								<a href='affiche.php?ad_id=41&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D284%26u%3D453' target='_blank'><img src='data/min-afficheimg/1467613960780687184.jpg' width='240' height='200' border='0' /></a>
+							</li>
+							<li>
+								<a href='affiche.php?ad_id=40&amp;uri=http%3A%2F%2F1528306970.s2.shop.iwanqi.cn%2Fgoods.php%3Fid%3D271' target='_blank'><img src='data/min-afficheimg/1466662969698166345.jpg' width='240' height='200' border='0' /></a>
+							</li>
+							<li>
+								<a href='affiche.php?ad_id=42&amp;uri=http%3A%2F%2F1528306970.s2.shop.iwanqi.cn%2Fgoods.php%3Fid%3D293' target='_blank'><img src='data/min-afficheimg/1466662999932847443.jpg' width='240' height='200' border='0' /></a>
+							</li>
+
+						</ul>
+					</div>
+
+					<div class="rg">
+						<ul>
+
+							<li>
+								<a href='affiche.php?ad_id=36&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D299' target='_blank'><img src='data/min-afficheimg/1466662900134279113.jpg' width='240' height='400' border='0' /></a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+
+				<div class="m-gest">
+					<div class="slideTxtBox">
+						<div class="hd">
+							<div class="nm">猜你喜欢 <span></span></div>
+							<ul>
+								<li>换一批 <i class="fa fa-repeat"></i></li>
+								<li>换一批 <i class="fa fa-repeat"></i></li>
+							</ul>
+						</div>
+						<div class="bd">
+							<ul>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=294"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/294_thumb_G_1467194287606.jpg" width="235" height="240" alt="东北黑木耳..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥19.90	</span>
+										<span class="gray">￥23.88</span>
+									</div>
+									<div class="desc">东北黑木耳150g/袋 秋耳 秋木耳 木耳特产干货</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=293"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/293_thumb_G_1467194207123.jpg" width="235" height="240" alt="盛耳原色银..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥9.90	</span>
+										<span class="gray">￥11.88</span>
+									</div>
+									<div class="desc">盛耳原色银耳花 50g/袋 白木耳花丑耳雪耳无添加</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=292"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/292_thumb_G_1467194140697.jpg" width="235" height="240" alt="香菇 20..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥28.00	</span>
+										<span class="gray">￥33.60</span>
+									</div>
+									<div class="desc">香菇 200g/袋 珍珠菇冬菇古田金钱菇特产干货</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=285"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/285_thumb_G_1467193072089.jpg" width="235" height="240" alt="金乡富硒大..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥5.60	</span>
+										<span class="gray">￥6.72</span>
+									</div>
+									<div class="desc">金乡富硒大蒜 裂皮大蒜头紫皮大蒜</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=286"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/286_thumb_G_1467193117862.jpg" width="235" height="240" alt="紫皮大蒜独..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥7.20	</span>
+										<span class="gray">￥8.64</span>
+									</div>
+									<div class="desc">紫皮大蒜独蒜 入药杀菌超香 有机独头大蒜200g</div>
+								</li>
+							</ul>
+							<ul>
+								<li class="rms1">
+									<div class="img">
+										<a href="goods.php?id=294"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/294_thumb_G_1467194287606.jpg" width="235" height="240" alt="东北黑木耳..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥19.90	</span>
+										<span class="gray">￥23.88</span>
+									</div>
+									<div class="desc">东北黑木耳150g/袋 秋耳 秋木耳 木耳特产干货</div>
+								</li>
+								<li class="rms2">
+									<div class="img">
+										<a href="goods.php?id=293"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/293_thumb_G_1467194207123.jpg" width="235" height="240" alt="盛耳原色银..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥9.90	</span>
+										<span class="gray">￥11.88</span>
+									</div>
+									<div class="desc">盛耳原色银耳花 50g/袋 白木耳花丑耳雪耳无添加</div>
+								</li>
+								<li class="rms3">
+									<div class="img">
+										<a href="goods.php?id=292"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/292_thumb_G_1467194140697.jpg" width="235" height="240" alt="香菇 20..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥28.00	</span>
+										<span class="gray">￥33.60</span>
+									</div>
+									<div class="desc">香菇 200g/袋 珍珠菇冬菇古田金钱菇特产干货</div>
+								</li>
+								<li class="rms4">
+									<div class="img">
+										<a href="goods.php?id=285"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/285_thumb_G_1467193072089.jpg" width="235" height="240" alt="金乡富硒大..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥5.60	</span>
+										<span class="gray">￥6.72</span>
+									</div>
+									<div class="desc">金乡富硒大蒜 裂皮大蒜头紫皮大蒜</div>
+								</li>
+								<li class="rms5">
+									<div class="img">
+										<a href="goods.php?id=286"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/286_thumb_G_1467193117862.jpg" width="235" height="240" alt="紫皮大蒜独..."></a>
+									</div>
+									<div class="price">
+										<span class="bold">		￥7.20	</span>
+										<span class="gray">￥8.64</span>
+									</div>
+									<div class="desc">紫皮大蒜独蒜 入药杀菌超香 有机独头大蒜200g</div>
+								</li>
+							</ul>
+						</div>
+
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$(".rms1,.rms2,.rms3,.rms4,.rms5").remove();
+							});
+						</script>
+
+					</div>
+				</div>
+
+				<div class="game163">
+					<ul class="bigImg">
+
+						<li>
+							<a href='affiche.php?ad_id=44&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D277' target='_blank'><img src='data/min-afficheimg/1466663161046476849.jpg' width='1200' height='80' border='0' /></a>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="m-fs m-1f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=121">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>1F</h3>
+						<p>蔬菜</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox1">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=46&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D280' target='_blank'><img src='data/min-afficheimg/1466664240211674485.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=286"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/286_thumb_G_1467193117862.jpg" width="220" height="220" alt="紫皮大蒜独蒜 入药杀菌超香 有机独头大蒜200g"></a>
+									</div>
+									<div class="name">紫皮大蒜独蒜 入药杀...</div>
+									<div class="price">
+										<span class="rd">
+          ￥7.20
+          </span>
+										<span class="gary">￥8.64</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=285"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/285_thumb_G_1467193072089.jpg" width="220" height="220" alt="金乡富硒大蒜 裂皮大蒜头紫皮大蒜"></a>
+									</div>
+									<div class="name">金乡富硒大蒜 裂皮大...</div>
+									<div class="price">
+										<span class="rd">
+          ￥5.60
+          </span>
+										<span class="gary">￥6.72</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=284"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/284_thumb_G_1467192973314.jpg" width="220" height="220" alt="云南高原农家新鲜黄心土豆8斤装"></a>
+									</div>
+									<div class="name">云南高原农家新鲜黄心...</div>
+									<div class="price">
+										<span class="rd">
+          ￥28.00
+          </span>
+										<span class="gary">￥33.60</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=283"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/283_thumb_G_1467192719727.jpg" width="220" height="220" alt="苦瓜 凉瓜 400g 2个装 "></a>
+									</div>
+									<div class="name">苦瓜 凉瓜 400g...</div>
+									<div class="price">
+										<span class="rd">
+          ￥15.00
+          </span>
+										<span class="gary">￥18.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=282"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/282_thumb_G_1467192643596.jpg" width="220" height="220" alt="尖椒 青椒 400g"></a>
+									</div>
+									<div class="name">尖椒 青椒 400g</div>
+									<div class="price">
+										<span class="rd">
+          ￥12.00
+          </span>
+										<span class="gary">￥14.39</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=281"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/281_thumb_G_1467192574804.jpg" width="220" height="220" alt="家美舒达 长茄 茄子 500g 2-3个"></a>
+									</div>
+									<div class="name">家美舒达 长茄 茄子...</div>
+									<div class="price">
+										<span class="rd">
+          ￥12.80
+          </span>
+										<span class="gary">￥15.36</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=280"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/280_thumb_G_1467192481962.jpg" width="220" height="220" alt="水果黄瓜 5-6个 约500g"></a>
+									</div>
+									<div class="name">水果黄瓜 5-6个 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥8.00
+          </span>
+										<span class="gary">￥9.60</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=279"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/279_thumb_G_1467192894336.jpg" width="220" height="220" alt="新鲜小毛芋头 香芋头芋艿新鲜蔬菜山东特产农家自种产品芋子 包邮"></a>
+									</div>
+									<div class="name">新鲜小毛芋头 香芋头...</div>
+									<div class="price">
+										<span class="rd">
+          ￥25.00
+          </span>
+										<span class="gary">￥30.00</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-fs m-2f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=122">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>2F</h3>
+						<p>水果</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox2">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=47&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D277' target='_blank'><img src='data/min-afficheimg/1466664258044767797.jpg' width='320' height='475' border='0' /></a>
+								</li>
+								<li>
+									<a href='affiche.php?ad_id=48&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D277' target='_blank'><img src='data/min-afficheimg/1466662879177349037.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=278"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/278_thumb_G_1467195604370.jpg" width="220" height="220" alt="新疆西州蜜甜瓜1个（约1.5kg/个）哈密瓜 新鲜水果"></a>
+									</div>
+									<div class="name">新疆西州蜜甜瓜1个（...</div>
+									<div class="price">
+										<span class="rd">
+          ￥15.00
+          </span>
+										<span class="gary">￥18.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=277"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/277_thumb_G_1467195649195.jpg" width="220" height="220" alt="正宗泰国进口金枕头新鲜榴莲5-10斤"></a>
+									</div>
+									<div class="name">正宗泰国进口金枕头新...</div>
+									<div class="price">
+										<span class="rd">
+          ￥298.00
+          </span>
+										<span class="gary">￥357.59</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=276"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/276_thumb_G_1467195689598.jpg" width="220" height="220" alt="广西大青芒果10斤约250g/个"></a>
+									</div>
+									<div class="name">广西大青芒果10斤约...</div>
+									<div class="price">
+										<span class="rd">
+          ￥59.00
+          </span>
+										<span class="gary">￥70.80</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=275"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/275_thumb_G_1467191866725.jpg" width="220" height="220" alt="南非彩梨/脆口梨子/进口水果 800g/盒"></a>
+									</div>
+									<div class="name">南非彩梨/脆口梨子/...</div>
+									<div class="price">
+										<span class="rd">
+          ￥25.00
+          </span>
+										<span class="gary">￥30.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=274"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/274_thumb_G_1467191775126.jpg" width="220" height="220" alt="墨西哥牛油果/鳄梨/进口水果 3只/盒"></a>
+									</div>
+									<div class="name">墨西哥牛油果/鳄梨/...</div>
+									<div class="price">
+										<span class="rd">
+          ￥45.00
+          </span>
+										<span class="gary">￥54.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=273"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/273_thumb_G_1467191658449.jpg" width="220" height="220" alt="海南青柠檬 新鲜水果 柠檬新鲜 青柠檬 750g 鲜柠檬 酸水果 包邮"></a>
+									</div>
+									<div class="name">海南青柠檬 新鲜水果...</div>
+									<div class="price">
+										<span class="rd">
+          ￥12.00
+          </span>
+										<span class="gary">￥14.39</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=272"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/272_thumb_G_1467191579797.jpg" width="220" height="220" alt="泰国进口椰青2个装 新鲜椰子椰汁 进口椰青水果"></a>
+									</div>
+									<div class="name">泰国进口椰青2个装 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥29.80
+          </span>
+										<span class="gary">￥35.76</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=271"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/271_thumb_G_1467195821851.jpg" width="220" height="220" alt="海南樱桃小番茄/国产水果1斤/盒"></a>
+									</div>
+									<div class="name">海南樱桃小番茄/国产...</div>
+									<div class="price">
+										<span class="rd">
+          ￥9.80
+          </span>
+										<span class="gary">￥11.76</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-fs m-3f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=123">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>3F</h3>
+						<p>冷链</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox3">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=50&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D313' target='_blank'><img src='data/min-afficheimg/1466664295604494718.jpg' width='320' height='475' border='0' /></a>
+								</li>
+								<li>
+									<a href='affiche.php?ad_id=49&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D313' target='_blank'><img src='data/min-afficheimg/1466664282333680482.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=318"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/318_thumb_G_1467273197325.jpg" width="220" height="220" alt="三黄鸡5只或6只 20斤"></a>
+									</div>
+									<div class="name">三黄鸡5只或6只 2...</div>
+									<div class="price">
+										<span class="rd">
+          ￥110.00
+          </span>
+										<span class="gary">￥132.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=317"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/317_thumb_G_1467272162785.jpg" width="220" height="220" alt="翅尖 20斤 一件"></a>
+									</div>
+									<div class="name">翅尖 20斤 一件</div>
+									<div class="price">
+										<span class="rd">
+          ￥0.00
+          </span>
+										<span class="gary">￥0.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=316"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/316_thumb_G_1467271910557.jpg" width="220" height="220" alt="鸡架 14斤 一件"></a>
+									</div>
+									<div class="name">鸡架 14斤 一件</div>
+									<div class="price">
+										<span class="rd">
+          ￥23.00
+          </span>
+										<span class="gary">￥27.59</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=315"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/315_thumb_G_1467271638462.jpg" width="220" height="220" alt="鸡腿排 40斤一件"></a>
+									</div>
+									<div class="name">鸡腿排 40斤一件</div>
+									<div class="price">
+										<span class="rd">
+          ￥255.00
+          </span>
+										<span class="gary">￥306.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=314"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/314_thumb_G_1467271516470.jpg" width="220" height="220" alt="鸡胸肉 20斤一件"></a>
+									</div>
+									<div class="name">鸡胸肉 20斤一件</div>
+									<div class="price">
+										<span class="rd">
+          ￥125.00
+          </span>
+										<span class="gary">￥150.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=313"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/313_thumb_G_1467271359169.jpg" width="220" height="220" alt="凤爪 30斤 一件"></a>
+									</div>
+									<div class="name">凤爪 30斤 一件</div>
+									<div class="price">
+										<span class="rd">
+          ￥290.00
+          </span>
+										<span class="gary">￥348.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=312"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/312_thumb_G_1467254642402.jpg" width="220" height="220" alt="琵琶腿150g以上 50几个一件"></a>
+									</div>
+									<div class="name">琵琶腿150g以上 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥130.00
+          </span>
+										<span class="gary">￥156.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=311"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/311_thumb_G_1467254224186.jpg" width="220" height="220" alt="鸡边腿 14斤 "></a>
+									</div>
+									<div class="name">鸡边腿 14斤</div>
+									<div class="price">
+										<span class="rd">
+          ￥63.00
+          </span>
+										<span class="gary">￥75.60</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-fs m-4f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=124">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>4F</h3>
+						<p>干副</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox4">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=51&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D294' target='_blank'><img src='data/min-afficheimg/1466664309074354510.jpg' width='320' height='475' border='0' /></a>
+								</li>
+								<li>
+									<a href='affiche.php?ad_id=52&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D294' target='_blank'><img src='data/min-afficheimg/1466664322012044395.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=294"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/294_thumb_G_1467194287606.jpg" width="220" height="220" alt="东北黑木耳150g/袋 秋耳 秋木耳 木耳特产干货"></a>
+									</div>
+									<div class="name">东北黑木耳150g/...</div>
+									<div class="price">
+										<span class="rd">
+          ￥19.90
+          </span>
+										<span class="gary">￥23.88</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=293"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/293_thumb_G_1467194207123.jpg" width="220" height="220" alt="盛耳原色银耳花 50g/袋 白木耳花丑耳雪耳无添加"></a>
+									</div>
+									<div class="name">盛耳原色银耳花 50...</div>
+									<div class="price">
+										<span class="rd">
+          ￥9.90
+          </span>
+										<span class="gary">￥11.88</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=292"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/292_thumb_G_1467194140697.jpg" width="220" height="220" alt="香菇 200g/袋 珍珠菇冬菇古田金钱菇特产干货"></a>
+									</div>
+									<div class="name">香菇 200g/袋 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥28.00
+          </span>
+										<span class="gary">￥33.60</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=291"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/291_thumb_G_1467194011279.jpg" width="220" height="220" alt="黑石岛墨鱼干 新鲜目鱼干特级 淡晒 乌贼海鲜干货"></a>
+									</div>
+									<div class="name">黑石岛墨鱼干 新鲜目...</div>
+									<div class="price">
+										<span class="rd">
+          ￥70.00
+          </span>
+										<span class="gary">￥84.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=290"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/290_thumb_G_1467193700455.jpg" width="220" height="220" alt="虾皮80g/袋海产品干货优质虾皮虾米海米干虾皮"></a>
+									</div>
+									<div class="name">虾皮80g/袋海产品...</div>
+									<div class="price">
+										<span class="rd">
+          ￥13.80
+          </span>
+										<span class="gary">￥16.56</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=289"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/289_thumb_G_1467193550806.jpg" width="220" height="220" alt="紫菜50g/袋福建特产免洗无杂质紫菜干货纯紫菜"></a>
+									</div>
+									<div class="name">紫菜50g/袋福建特...</div>
+									<div class="price">
+										<span class="rd">
+          ￥17.90
+          </span>
+										<span class="gary">￥21.47</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=288"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/288_thumb_G_1467193479136.jpg" width="220" height="220" alt="寿司海苔50张1份包邮 海苔寿司专用寿司紫菜包饭专用紫菜寿司材料"></a>
+									</div>
+									<div class="name">寿司海苔50张1份包...</div>
+									<div class="price">
+										<span class="rd">
+          ￥20.60
+          </span>
+										<span class="gary">￥24.72</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=287"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/287_thumb_G_1467193343830.jpg" width="220" height="220" alt="野生特级海鲜干货海带250g特厚海产干货海带昆布海带头海带丝"></a>
+									</div>
+									<div class="name">野生特级海鲜干货海带...</div>
+									<div class="price">
+										<span class="rd">
+          ￥13.80
+          </span>
+										<span class="gary">￥16.56</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-fs m-5f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=125">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>5F</h3>
+						<p>粮油</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox5">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=53&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D300' target='_blank'><img src='data/min-afficheimg/1466664338755719246.jpg' width='320' height='475' border='0' /></a>
+								</li>
+								<li>
+									<a href='affiche.php?ad_id=54&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D300' target='_blank'><img src='data/min-afficheimg/1466664349182696290.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=302"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/302_thumb_G_1467195133520.jpg" width="220" height="220" alt="兴香思绿豆380g东北绿豆做绿豆粥汤 冰沙"></a>
+									</div>
+									<div class="name">兴香思绿豆380g东...</div>
+									<div class="price">
+										<span class="rd">
+          ￥8.80
+          </span>
+										<span class="gary">￥10.56</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=301"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/301_thumb_G_1467195036390.jpg" width="220" height="220" alt="黑龙江东北大米新米 五常稻花香大米5斤 粳米 五常大米"></a>
+									</div>
+									<div class="name">黑龙江东北大米新米 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥34.00
+          </span>
+										<span class="gary">￥40.80</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=300"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/300_thumb_G_1467194838965.jpg" width="220" height="220" alt="金龙鱼 软香稻5kg 正宗苏北大米 射阳大米 人气爆款"></a>
+									</div>
+									<div class="name">金龙鱼 软香稻5kg...</div>
+									<div class="price">
+										<span class="rd">
+          ￥27.00
+          </span>
+										<span class="gary">￥32.40</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=299"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/299_thumb_G_1467194800622.jpg" width="220" height="220" alt="福临门 苏软香 5kg 鱼米之乡 口感软糯 中粮出品"></a>
+									</div>
+									<div class="name">福临门 苏软香 5k...</div>
+									<div class="price">
+										<span class="rd">
+          ￥29.00
+          </span>
+										<span class="gary">￥34.80</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=298"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/298_thumb_G_1467194702374.jpg" width="220" height="220" alt="欧贝丽斯初榨橄榄食用调和油1.8L装 非转基因 橄榄油食用油 粮油"></a>
+									</div>
+									<div class="name">欧贝丽斯初榨橄榄食用...</div>
+									<div class="price">
+										<span class="rd">
+          ￥35.00
+          </span>
+										<span class="gary">￥42.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=297"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/297_thumb_G_1467194619549.jpg" width="220" height="220" alt="西王玉米胚芽油 玉米油非转基因物理压榨食用油4L/桶+900ml粮油"></a>
+									</div>
+									<div class="name">西王玉米胚芽油 玉米...</div>
+									<div class="price">
+										<span class="rd">
+          ￥88.00
+          </span>
+										<span class="gary">￥105.60</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=296"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/296_thumb_G_1467194563664.jpg" width="220" height="220" alt="万年兴玉米油5L/桶 非转基因 食用油 粮油 新老包装随机发货"></a>
+									</div>
+									<div class="name">万年兴玉米油5L/桶...</div>
+									<div class="price">
+										<span class="rd">
+          ￥80.00
+          </span>
+										<span class="gary">￥96.00</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=295"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/295_thumb_G_1467194456841.jpg" width="220" height="220" alt="金龙鱼食用油花生浓香食用调和油5L/桶食用油粮油正品"></a>
+									</div>
+									<div class="name">金龙鱼食用油花生浓香...</div>
+									<div class="price">
+										<span class="rd">
+          ￥56.00
+          </span>
+										<span class="gary">￥67.20</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-fs m-6f">
+
+					<div class="tt">
+						<div class="rm"><span></span>
+							<a href="category.php?id=126">更多+</a>
+						</div>
+					</div>
+
+					<div class="nms">
+						<h3>6F</h3>
+						<p>种子</p>
+					</div>
+
+					<div class="cont">
+
+						<div class="focusBox focusBox6">
+							<ul class="pic">
+
+								<li>
+									<a href='affiche.php?ad_id=56&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D309' target='_blank'><img src='data/min-afficheimg/1466664378166717315.jpg' width='320' height='475' border='0' /></a>
+								</li>
+								<li>
+									<a href='affiche.php?ad_id=55&amp;uri=http%3A%2F%2Fwww.cnncp.net%2Fgoods.php%3Fid%3D309' target='_blank'><img src='data/min-afficheimg/1466664365002054649.jpg' width='320' height='475' border='0' /></a>
+								</li>
+
+							</ul>
+							<ul class="hd"></ul>
+						</div>
+
+						<div class="rg">
+							<ul>
+
+								<li>
+									<div class="img">
+										<a href="goods.php?id=310"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/310_thumb_G_1467253169688.jpg" width="220" height="220" alt="满天星种子 观花种子"></a>
+									</div>
+									<div class="name">满天星种子 观花种子</div>
+									<div class="price">
+										<span class="rd">
+          ￥2.00
+          </span>
+										<span class="gary">￥2.40</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=309"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/309_thumb_G_1467253114316.jpg" width="220" height="220" alt="牡丹花种子花卉种子赛蔷薇玫瑰月季阳台庭院四季种植牡丹种子"></a>
+									</div>
+									<div class="name">牡丹花种子花卉种子赛...</div>
+									<div class="price">
+										<span class="rd">
+          ￥2.00
+          </span>
+										<span class="gary">￥2.40</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=308"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/308_thumb_G_1467253045801.jpg" width="220" height="220" alt="大丽花花卉种子混色 "></a>
+									</div>
+									<div class="name">大丽花花卉种子混色</div>
+									<div class="price">
+										<span class="rd">
+          ￥2.00
+          </span>
+										<span class="gary">￥2.40</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=307"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/307_thumb_G_1467252963150.jpg" width="220" height="220" alt="荷兰进口郁金香种球 大球根 盆栽室内花卉种子批发 阳台桌面植物"></a>
+									</div>
+									<div class="name">荷兰进口郁金香种球 ...</div>
+									<div class="price">
+										<span class="rd">
+          ￥3.00
+          </span>
+										<span class="gary">￥3.59</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=306"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/306_thumb_G_1467252907508.jpg" width="220" height="220" alt="室内高档花卉盆栽仙客来种子 兔耳花兔子花籽阳台庭院四季播易种 5粒"></a>
+									</div>
+									<div class="name">室内高档花卉盆栽仙客...</div>
+									<div class="price">
+										<span class="rd">
+          ￥1.20
+          </span>
+										<span class="gary">￥1.44</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=305"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/305_thumb_G_1467252807326.jpg" width="220" height="220" alt="四季种植阳台种菜蔬菜种子菜籽盆栽庭院水果矮向日葵套餐"></a>
+									</div>
+									<div class="name">四季种植阳台种菜蔬菜...</div>
+									<div class="price">
+										<span class="rd">
+          ￥2.00
+          </span>
+										<span class="gary">￥2.40</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=304"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/304_thumb_G_1467252690033.jpg" width="220" height="220" alt="康乃馨种子50粒"></a>
+									</div>
+									<div class="name">康乃馨种子50粒</div>
+									<div class="price">
+										<span class="rd">
+          ￥9.90
+          </span>
+										<span class="gary">￥11.88</span>
+									</div>
+								</li>
+								<li>
+									<div class="img">
+										<a href="goods.php?id=303"><img class="layimg" data-original="http://www.cnncp.net/images/201606/thumb_img/303_thumb_G_1467252631592.jpg" width="220" height="220" alt="花种子四季种套餐阳台易种春季夏季室内卉花卉绿植物盆栽批发"></a>
+									</div>
+									<div class="name">花种子四季种套餐阳台...</div>
+									<div class="price">
+										<span class="rd">
+          ￥2.00
+          </span>
+										<span class="gary">￥2.40</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a href="javascript:;" title="返回顶部" class="gotop"><i class="fa fa-rocket"></i></a>
+
+		<div style="clear:both;"></div>
+		<div class="g-ft">
+			<div class="container">
+
+				<div class="m-hp-img"><img src="img/flp.jpg" alt="正品保障,满包邮,售后无忧,准时送达"></div>
+
+				<div class="m-hp-lst">
+
+					<div class="lf">
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=5">新手上路 </a>
+							</li>
+							<li>
+								<a href="article.php?id=38">新手指南</a>
+							</li>
+							<li>
+								<a href="article.php?id=39">验单签收</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=7">配送与支付 </a>
+							</li>
+							<li>
+								<a href="article.php?id=17">支付方式说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=42">运费说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=43">包邮政策说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=10">会员中心</a>
+							</li>
+							<li>
+								<a href="article.php?id=19">我的收藏</a>
+							</li>
+							<li>
+								<a href="article.php?id=20">我的订单</a>
+							</li>
+							<li>
+								<a href="article.php?id=44">积分说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=6">购物须知</a>
+							</li>
+							<li>
+								<a href="article.php?id=40">订单处理知识</a>
+							</li>
+							<li>
+								<a href="article.php?id=41">订单状态说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=8">服务保证 </a>
+							</li>
+							<li>
+								<a href="article.php?id=45">退货说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=46">退换货政策</a>
+							</li>
+						</ul>
+					</div>
+
+					<!--<div class="rg">
+                <ul>
+                    <li>
+                        <p>手机客户端</p>
+                        <div><img src="themes/hd/images/liantu.png" alt="中国农产品商城_手机客户端"></div>
+                    </li>
+                    <li>
+                        <p>微信公众号</p>
+                        <div><img src="themes/hd/images/liantu.png" alt="中国农产品商城_微信公众号"></div>
+                    </li>
+                </ul>
+            </div>-->
+				</div>
+			</div>
+
+			<div class="m-copy">
+				版权所有&nbsp;&nbsp;&copy;2016&nbsp;&nbsp;爱农场商城&nbsp;&nbsp;&nbsp;&nbsp;ICP备案证书号:
+				<a href="//www.miibeian.gov.cn/" target="_blank">渝ICP备16006683号</a>
+			</div>
+		</div>
+		<div id="right_sidebar" style="display:none"></div>
+		<div style="display:none">共执行 19 个查询，用时 5.267923 秒，在线 23 人，Gzip 已禁用，占用内存 6.202 MB</div>
+		<script type="text/javascript">
+			function check_del(msg, url) {
+				jConfirm(msg, '温馨提示', function(r) {
+					if(r) {
+						window.location.href = url;
+					}
+				});
+			}
+			/*网站统计*/
+			$.ajax({
+				url: "stat.php",
+				type: "post",
+				data: 'act=visit&visit_times=1&lang=zh-CN,zh&domain=http://www.cnncp.net&path=/user.php?act=order_list&access_url=/&access_domain=http://www.cnncp.net&time=1493131706&session_id=69c2667d9b7636890b12058a08e17379&user_id=0&goods_id=0&is_mobile=0',
+				async: true
+			});
+		</script>
+	</body>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/gift_pc.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.superslide.2.1.1.js"></script>
+	<script type="text/javascript" src="js/jquery.skitter.min.js"></script>
+	<script type="text/javascript" src="js/banner.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+	<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('img.layimg').lazyload({
+				threshold: 200,
+				effect: "fadeIn",
+				failure_limit: 30,
+				skip_invisible: true
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.clink').click(function(even) {
+				even.preventDefault();
+			});
+		});
+	</script>
+
+</html>

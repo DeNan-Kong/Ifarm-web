@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta name="Generator" content="ECSHOP v2.7.3" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>种植基地_种植基地_中国农产品商城</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+		<link href="themes/hd/handu_base.css" rel="stylesheet" type="text/css" />
+		<link href="themes/hd/handu_style.css" rel="stylesheet" type="text/css" />
+		<link href="themes/hd/handu_nivoslider.css" rel="stylesheet" type="text/css" />
+		<link href="themes/hd/handu_flex.css" rel="stylesheet" type="text/css" />
+		<link href="themes/hd/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body>
+		<link rel="stylesheet" href="themes/hd/css/base.css" />
+		<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://cdn.bootcss.com/hover.css/2.0.2/css/hover-min.css" rel="stylesheet">
+		<link rel="stylesheet" href="themes/hd/css/common.css">
+		<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="themes/hd/js/common.js"></script>
+		<script src="themes/hd/js/jquery.alerts.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$('li').hover(function() {
+					$(this).addClass('ons');
+				}, function() {
+					$(this).removeClass('ons');
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			window.onbeforeunload = function() {
+				$.ajax({
+					url: "stat.php",
+					type: "POST",
+					data: "access_url=",
+					async: true
+				});
+			};
+			$(document).ready(function() {
+				$("#AddFavorite").click(function() {
+					jAlert('请使用浏览器快捷键Ctrl+D来完成收藏', '温馨提示', function(r) {
+						obj.focus();
+					});
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			(function($) {
+				$.fn.hoverForIE6 = function(option) {
+					var s = $.extend({
+						current: "hover",
+						delay: 10
+					}, option || {});
+					$.each(this, function() {
+						var timer1 = null,
+							timer2 = null,
+							flag = false;
+						$(this).bind("mouseover", function() {
+							if(flag) {
+								clearTimeout(timer2);
+							} else {
+								var _this = $(this);
+								timer1 = setTimeout(function() {
+									_this.addClass(s.current);
+									flag = true;
+								}, s.delay);
+							}
+						}).bind("mouseout", function() {
+							if(flag) {
+								var _this = $(this);
+								timer2 = setTimeout(function() {
+									_this.removeClass(s.current);
+									flag = false;
+								}, s.delay);
+							} else {
+								clearTimeout(timer1);
+							}
+						});
+					});
+				};
+			})(jQuery);
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".allsort").hoverForIE6({
+					current: "allsorthover",
+					delay: 0
+				});
+				$(".allsort .item").hoverForIE6({
+					delay: 0
+				});
+			});
+		</script>
+		<div class="g-hd">
+
+			<div class="m-top">
+				<div class="container">
+
+					<div class="lf">
+						<span>Hi,欢迎光临中国农产品商城!</span>
+						<ul>
+							<li id="top_leftsidebar_member_info"><span id="append_parent"></span> &nbsp;
+
+							</li>
+							<li id="top_rightsidebar_member_info_link"><span id="append_parent"></span>
+
+								<a href="user.php?act=login">请您登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="user.php?act=register">免费注册</a>
+							</li>
+							<li>|
+								<a id="AddFavorite" rel="nofollow" href="javascript:;"><i class="fa fa-star-o"></i> 收藏网站</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="rg">
+						<ul>
+							<li>
+								<a href="user.php?act=default">我的商城 <i class="fa fa-caret-down"></i></a>|
+								<div class="show">
+									<p>
+										<a href="user.php?act=order_list">已买到的商品</a>
+									</p>
+									<p>
+										<a href="user.php?act=collection_list">我的收藏</a>
+									</p>
+								</div>
+							</li>
+							<!--<li><a href="javascript:;"><i class="fa fa-mobile"></i> 手机版</a>|
+                        <div class="em"><img src="themes/hd/images/liantu.png" alt="中国农产品商城_手机版"></div>
+                    </li>-->
+							<li><i class="fa fa-phone"></i> 客服电话: <span>023-65427531</span></li>
+							<!--<li>|<a href="">帮助中心</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="m-head">
+				<div class="container">
+
+					<div class="logo">
+						<a href="/"><img src="themes/hd/images/logo.png" alt="中国农产品商城"></a>
+					</div>
+
+					<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+						<div class="form">
+							<input onkeydown="if (event.keycode==13) {formsubmit()}" id='searchinput' onfocus="if (this.value =='针织衫'){this.value=''}" name="keywords" type="text" placeholder="柠檬">
+							<button onclick="javascript:formsubmit()" name="searchbtn" type="submit">搜索</button>
+						</div>
+						<p>
+							<a href="search.php?keywords=%E9%A6%99%E8%8F%87">香菇</a>
+							<a href="search.php?keywords=%E9%9D%92%E6%A4%92">青椒</a>
+							<a href="search.php?keywords=%E8%8A%92%E6%9E%9C">芒果</a>
+						</p>
+					</form>
+
+					<a href="flow.php" class="cart"><i class="fa fa-cart-plus"></i> 我的购物车 <i class="fa fa-angle-right"></i> <span>0</span></a>
+				</div>
+				<div id="ECS_CARTINFO" style="display:none;">
+
+					<div class="hd_shopping">
+						<a class="nou font14 pay_car" href="javascript:;">
+							<img class="fl" src="themes/hd/images/image-icon/cart.gif" width="28" height="28" />
+							<span class="fl" style="font-size:14px;">&nbsp;&nbsp;去购物车结算&nbsp;</span>
+						</a>
+						<b class="clof center" id="head_cart_num">0</b>
+					</div>
+					<div class="center cart_content_null" id="thumb_cart" style="display:none">
+						<p style="padding:10px;">购物车中还没有商品，<br> 快去挑选心爱的商品吧！
+						</p>
+					</div>
+					<script type="text/javascript">
+						function deleteCartGoods(rec_id) {
+
+							jConfirm('确定删除该商品吗?', '温馨提示', function(r) {
+								if(r) {
+									Ajax.call('delete_cart_goods.php', 'id=' + rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+								}
+							});
+						}
+
+						/**
+						 * 接收返回的信息
+						 */
+						function deleteCartGoodsResponse(res) {
+							if(res.error) {
+								jAlert(res.err_msg);
+							} else {
+								document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+								if(document.getElementById('ECS_CARTINFO2')) {
+									document.getElementById('ECS_CARTINFO2').innerHTML = res.content2;
+								}
+								if(document.getElementById('mini_cart_number')) {
+									document.getElementById('mini_cart_number').innerHTML = res.cart_number;
+								}
+								if(document.getElementById('mini_cart_number2')) {
+									document.getElementById('mini_cart_number2').innerHTML = res.cart_number;
+								}
+							}
+						}
+					</script>
+
+				</div>
+			</div>
+
+			<div class="m-nav">
+				<div class="container sbs">
+
+					<div class="alllst">
+						<div class="allsort">
+							<div class='mt'>
+								<a class="clink" href="/">全部商品分类</a>
+							</div>
+
+							<div class='mc'>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp1"><a href="category.php?id=121">蔬菜</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=127">叶菜类</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=128">根茎类</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=161">果菜类</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=127">叶菜类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=130">卷心菜</a></em>
+													<em><a href="category.php?id=131">大白菜</a></em>
+													<em><a href="category.php?id=132">娃娃菜</a></em>
+													<em><a href="category.php?id=133">苦菊</a></em>
+													<em><a href="category.php?id=134">韭菜</a></em>
+													<em><a href="category.php?id=135">菠菜</a></em>
+													<em><a href="category.php?id=136">蒜苗</a></em>
+													<em><a href="category.php?id=137">空心菜</a></em>
+													<em><a href="category.php?id=138">油麦菜</a></em>
+													<em><a href="category.php?id=139">芹菜</a></em>
+													<em><a href="category.php?id=140">生菜</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=128">根茎类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=141">芋头</a></em>
+													<em><a href="category.php?id=142">蒜</a></em>
+													<em><a href="category.php?id=143">菱角</a></em>
+													<em><a href="category.php?id=144">绿豆芽</a></em>
+													<em><a href="category.php?id=145">红薯</a></em>
+													<em><a href="category.php?id=146">莴苣</a></em>
+													<em><a href="category.php?id=147">洋葱</a></em>
+													<em><a href="category.php?id=148">大葱</a></em>
+													<em><a href="category.php?id=149">豆苗</a></em>
+													<em><a href="category.php?id=150">白萝卜</a></em>
+													<em><a href="category.php?id=151">紫薯</a></em>
+													<em><a href="category.php?id=152">青萝卜</a></em>
+													<em><a href="category.php?id=153">生姜</a></em>
+													<em><a href="category.php?id=154">小葱</a></em>
+													<em><a href="category.php?id=155">荸荠</a></em>
+													<em><a href="category.php?id=156">胡萝卜</a></em>
+													<em><a href="category.php?id=157">黄豆芽</a></em>
+													<em><a href="category.php?id=158">土豆</a></em>
+													<em><a href="category.php?id=159">西兰花</a></em>
+													<em><a href="category.php?id=160">莲藕</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=161">果菜类</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=162">苦瓜</a></em>
+													<em><a href="category.php?id=163">冬瓜</a></em>
+													<em><a href="category.php?id=164">杭椒</a></em>
+													<em><a href="category.php?id=165">菜椒</a></em>
+													<em><a href="category.php?id=166">扁豆</a></em>
+													<em><a href="category.php?id=167">黄瓜</a></em>
+													<em><a href="category.php?id=168">茄子</a></em>
+													<em><a href="category.php?id=169">朝天椒</a></em>
+													<em><a href="category.php?id=170">青椒</a></em>
+													<em><a href="category.php?id=171">芸豆</a></em>
+													<em><a href="category.php?id=172">番茄</a></em>
+													<em><a href="category.php?id=173">南瓜</a></em>
+													<em><a href="category.php?id=174">尖椒</a></em>
+													<em><a href="category.php?id=175">黄花菜</a></em>
+													<em><a href="category.php?id=176">蒜苔</a></em>
+													<em><a href="category.php?id=323">芋头</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp2"><a href="category.php?id=122">水果</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=177">国产水果</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=178">进口水果</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=177">国产水果</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=179">苹果</a></em>
+													<em><a href="category.php?id=180">香蕉</a></em>
+													<em><a href="category.php?id=181">芒果</a></em>
+													<em><a href="category.php?id=182">葡萄</a></em>
+													<em><a href="category.php?id=183">橘子</a></em>
+													<em><a href="category.php?id=184">柠檬</a></em>
+													<em><a href="category.php?id=185">桃</a></em>
+													<em><a href="category.php?id=186">木瓜</a></em>
+													<em><a href="category.php?id=187">梨</a></em>
+													<em><a href="category.php?id=188">柚子</a></em>
+													<em><a href="category.php?id=189">车厘子/樱桃</a></em>
+													<em><a href="category.php?id=190">奇异果</a></em>
+													<em><a href="category.php?id=191">牛油果</a></em>
+													<em><a href="category.php?id=192">李子</a></em>
+													<em><a href="category.php?id=193">枇杷</a></em>
+													<em><a href="category.php?id=194">荔枝</a></em>
+													<em><a href="category.php?id=195">榴莲</a></em>
+													<em><a href="category.php?id=196">山竹</a></em>
+													<em><a href="category.php?id=197">哈密瓜</a></em>
+													<em><a href="category.php?id=198">蓝莓</a></em>
+													<em><a href="category.php?id=199">小番茄</a></em>
+													<em><a href="category.php?id=322">番茄</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=178">进口水果</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=200">牛油果</a></em>
+													<em><a href="category.php?id=201">火龙果</a></em>
+													<em><a href="category.php?id=202">芒果</a></em>
+													<em><a href="category.php?id=203">车厘子</a></em>
+													<em><a href="category.php?id=204">葡萄/提子</a></em>
+													<em><a href="category.php?id=205">山竹</a></em>
+													<em><a href="category.php?id=206">椰子</a></em>
+													<em><a href="category.php?id=207">榴莲</a></em>
+													<em><a href="category.php?id=208">柠檬</a></em>
+													<em><a href="category.php?id=209">李子</a></em>
+													<em><a href="category.php?id=210">释迦</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp3"><a href="category.php?id=123">冷链</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=219">鸡副</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=220">鸭副</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=221">海鲜</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=222">兔副</a></li>
+                                                                                                                                                                                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=219">鸡副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=225">鸡边腿</a></em>
+													<em><a href="category.php?id=226">琵琶腿150g以上</a></em>
+													<em><a href="category.php?id=227">琵琶腿120～130g</a></em>
+													<em><a href="category.php?id=228">琵琶腿80～100g</a></em>
+													<em><a href="category.php?id=229">琵琶腿100～120g</a></em>
+													<em><a href="category.php?id=230">凤爪</a></em>
+													<em><a href="category.php?id=231">鸡翅根</a></em>
+													<em><a href="category.php?id=232">鸡胸肉</a></em>
+													<em><a href="category.php?id=233">鸡腿排</a></em>
+													<em><a href="category.php?id=234">鸡架</a></em>
+													<em><a href="category.php?id=235">翅尖</a></em>
+													<em><a href="category.php?id=236">红太阳鸡排翅</a></em>
+													<em><a href="category.php?id=237">三黄鸡5只或6只</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=220">鸭副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=238">鑫珂半边鸭</a></em>
+													<em><a href="category.php?id=239">金线半片鸭</a></em>
+													<em><a href="category.php?id=240">六和半片鸭</a></em>
+													<em><a href="category.php?id=241">鸭胸肉</a></em>
+													<em><a href="category.php?id=242">鸭翅根</a></em>
+													<em><a href="category.php?id=243">鸭边腿</a></em>
+													<em><a href="category.php?id=244">鸭掌L</a></em>
+													<em><a href="category.php?id=245">鸭食带</a></em>
+													<em><a href="category.php?id=246">鸭心</a></em>
+													<em><a href="category.php?id=247">六和鸭肫M</a></em>
+													<em><a href="category.php?id=248">板鸭</a></em>
+													<em><a href="category.php?id=249">荣顺鸭肫</a></em>
+													<em><a href="category.php?id=250">鸭肠</a></em>
+													<em><a href="category.php?id=251">去皮鸭胸</a></em>
+													<em><a href="category.php?id=252">鸭腿</a></em>
+													<em><a href="category.php?id=253">白条鸭2.5斤</a></em>
+													<em><a href="category.php?id=254">白条鸭2.9斤</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=221">海鲜</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=255">棒棒鱼</a></em>
+													<em><a href="category.php?id=256">带鱼150/200</a></em>
+													<em><a href="category.php?id=257">带鱼200/300</a></em>
+													<em><a href="category.php?id=258">带鱼段</a></em>
+													<em><a href="category.php?id=259">龙利鱼</a></em>
+													<em><a href="category.php?id=260">鱿鱼头</a></em>
+													<em><a href="category.php?id=261">白灼虾</a></em>
+													<em><a href="category.php?id=262">青虾8/12</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=222">兔副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=263">兔子</a></em>
+													<em><a href="category.php?id=264">鲜兔</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=223">猪牛副</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=265">猪小排</a></em>
+													<em><a href="category.php?id=266">腊肉</a></em>
+													<em><a href="category.php?id=267">猪手</a></em>
+													<em><a href="category.php?id=268">毛毛肉</a></em>
+													<em><a href="category.php?id=269">熟肥肠</a></em>
+													<em><a href="category.php?id=270">连肝肉 格子肉</a></em>
+													<em><a href="category.php?id=271">去耳头皮</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=224">半成品</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=272">土豆粉</a></em>
+													<em><a href="category.php?id=273">玉米粒</a></em>
+													<em><a href="category.php?id=274">玉米棒</a></em>
+													<em><a href="category.php?id=275">青豆仁</a></em>
+													<em><a href="category.php?id=276">超霸鸡排</a></em>
+													<em><a href="category.php?id=277">鸡米花</a></em>
+													<em><a href="category.php?id=278">无骨鸡柳</a></em>
+													<em><a href="category.php?id=279">黄金脆</a></em>
+													<em><a href="category.php?id=280">骨肉相连</a></em>
+													<em><a href="category.php?id=281">40g狮子头</a></em>
+													<em><a href="category.php?id=282">牛、鸡、鱼肉丸</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp4"><a href="category.php?id=124">干副</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=211">干蔬</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=324">海鲜</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=211">干蔬</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=212">海带</a></em>
+													<em><a href="category.php?id=213">黄花菜</a></em>
+													<em><a href="category.php?id=214">银耳</a></em>
+													<em><a href="category.php?id=215">木耳</a></em>
+													<em><a href="category.php?id=216">猴头菇</a></em>
+													<em><a href="category.php?id=217">紫菜</a></em>
+													<em><a href="category.php?id=218">香菇</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=324">海鲜</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=325">虾皮</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp5"><a href="category.php?id=125">粮油</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=283">食用油</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=284">大米</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=285">调味品</a></li>
+                                                                                                                                                               	<li><a href="category.php?id=286">副食杂粮</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=283">食用油</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=287">色拉油</a></em>
+													<em><a href="category.php?id=288">菜籽油</a></em>
+													<em><a href="category.php?id=289">小榨油</a></em>
+													<em><a href="category.php?id=290">芝麻油</a></em>
+													<em><a href="category.php?id=291">大豆油</a></em>
+													<em><a href="category.php?id=292">花生油</a></em>
+													<em><a href="category.php?id=293">调和油</a></em>
+													<em><a href="category.php?id=327">玉米油</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=284">大米</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=308">国产大米</a></em>
+													<em><a href="category.php?id=309">泰国香米</a></em>
+													<em><a href="category.php?id=310">糙米</a></em>
+													<em><a href="category.php?id=311">黑米</a></em>
+													<em><a href="category.php?id=312">糯米</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=285">调味品</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=294">鸡精</a></em>
+													<em><a href="category.php?id=295">味精</a></em>
+													<em><a href="category.php?id=296">豆瓣</a></em>
+													<em><a href="category.php?id=297">酱油</a></em>
+													<em><a href="category.php?id=298">食用盐</a></em>
+													<em><a href="category.php?id=299">料酒</a></em>
+													<em><a href="category.php?id=300">古醋</a></em>
+													<em><a href="category.php?id=301">白糖</a></em>
+												</dd>
+
+											</dl>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=286">副食杂粮</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=302">黄豆</a></em>
+													<em><a href="category.php?id=303">绿豆</a></em>
+													<em><a href="category.php?id=304">红豆</a></em>
+													<em><a href="category.php?id=305">花生</a></em>
+													<em><a href="category.php?id=306">玉米</a></em>
+													<em><a href="category.php?id=307">糯米</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+								<div class='item fore'>
+									<span>
+                               <h3 class="hp6"><a href="category.php?id=126">种子</a></h3>
+                               <div style="clear:both" class="ssp">
+                               		<ul>
+                                    	                                                                                	<li><a href="category.php?id=313">各类种子</a></li>
+                                                                                                                   </ul>
+                               </div>
+                            </span>
+
+									<div class='i-mc'>
+										<div class='subitem'>
+											<dl class='fore'>
+
+												<dt><a href="category.php?id=313">各类种子</a></dt>
+
+												<dd>
+													<em><a href="category.php?id=314">蔬菜种子</a></em>
+													<em><a href="category.php?id=315">观花种子</a></em>
+													<em><a href="category.php?id=316">观果种子</a></em>
+													<em><a href="category.php?id=317">观叶种子</a></em>
+													<em><a href="category.php?id=318">香草种子</a></em>
+													<em><a href="category.php?id=319">垂吊花卉</a></em>
+													<em><a href="category.php?id=320">林木种子</a></em>
+													<em><a href="category.php?id=321">芽苗菜</a></em>
+													<em><a href="category.php?id=328">阳台种子</a></em>
+												</dd>
+
+											</dl>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ul class="nav">
+						<li>
+							<a class="hvr-bounce-to-top" href="/">首页</a><span class="h1"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=hot">热销商品</a><span class="h2"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=best">精品促销</a><span class="h3"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=new">新品上市</a><span class="h4"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=promotion">限时抢购</a><span class="h5"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="search.php?intro=shipping">包邮商品</a><span class="h6"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="exchange.php">积分商城</a><span class="h7"></span></li>
+						<li>
+							<a class="hvr-bounce-to-top" href="/article.php?id=52">种植基地</a><span class="h8"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+		<div class="block clearfix">
+			<div class="microsoft_yahei font14 fontb">
+				<style>
+					#ur_here a,
+					#ur_here code {
+						font-family: '微软雅黑', '宋体';
+						font-size: 14px;
+						font-weight: bold;
+					}
+				</style>
+				<div id="ur_here" class="fontwy14b">
+					<img src="themes/hd/images/image-icon/location.png" style="margin-right: 10px; margin-top: -5px;width:25px" />
+					<a href=".">首页</a> <code>&gt;</code>
+					<a href="article_cat.php?id=21">种植基地</a> <code>&gt;</code> 种植基地
+				</div>
+			</div>
+			<div class="blank5"></div>
+			<div class="AreaL">
+				<img class="f_l" src="themes/hd/images/help_center_t.gif" />
+				<div id="help_center" class="cat_m">
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=5' title="新手上路 ">新手上路 </a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=38" title="新手指南">新手指南</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=39" title="验单签收">验单签收</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=7' title="配送与支付 ">配送与支付 </a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=17" title="支付方式说明">支付方式说明</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=42" title="运费说明">运费说明</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=43" title="包邮政策说明">包邮政策说明</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=10' title="会员中心">会员中心</a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=19" title="我的收藏">我的收藏</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=20" title="我的订单">我的订单</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=44" title="积分说明">积分说明</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=6' title="购物须知">购物须知</a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=40" title="订单处理知识">订单处理知识</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=41" title="订单状态说明">订单状态说明</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=8' title="服务保证 ">服务保证 </a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=45" title="退货说明">退货说明</a>
+						</dd>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=46" title="退换货政策">退换货政策</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fontb font12 microsoft_yahei"><a href='article_cat.php?id=9' title="联系我们 ">联系我们 </a></dt>
+						<dd class="font12 microsoft_yahei">
+							<a href="article.php?id=47" title="联系方式">联系方式</a>
+						</dd>
+					</dl>
+				</div>
+				<img class="f_l" src="themes/hd/images/cat_b.gif" />
+				<div class="blank"></div>
+				<div class="blank"></div>
+
+			</div>
+
+			<div class="AreaR">
+				<div class="box">
+					<div class="box_1">
+						<div style="border:4px solid #f8f8f8; background-color:#fff; padding:20px 15px;">
+							<div class="tc" style="padding:8px;">
+								<font class="f5 f6 microsoft_yahei fontb" style="font-size:18px; color:#333;">种植基地</font><br /><br />
+								<font class="f3 microsoft_yahei" style="font-size:15px">中国农产品商城 / 2016-08-08</font>
+							</div>
+							<p style="text-align: center;">&nbsp;<img src="/images/upload/Image/未命名_meitu_0.jpg" width="670" height="670" alt="" /></p>
+							<div style="padding:8px; margin-top:15px; text-align:left; border-top:1px solid #ccc;">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="blank"></div>
+			</div>
+
+		</div>
+		<div style="clear:both;"></div>
+		<div class="g-ft">
+			<div class="container">
+
+				<div class="m-hp-img"><img src="themes/hd/images/flp.jpg" alt="正品保障,满包邮,售后无忧,准时送达"></div>
+
+				<div class="m-hp-lst">
+
+					<div class="lf">
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=5">新手上路 </a>
+							</li>
+							<li>
+								<a href="article.php?id=38">新手指南</a>
+							</li>
+							<li>
+								<a href="article.php?id=39">验单签收</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=7">配送与支付 </a>
+							</li>
+							<li>
+								<a href="article.php?id=17">支付方式说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=42">运费说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=43">包邮政策说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=10">会员中心</a>
+							</li>
+							<li>
+								<a href="article.php?id=19">我的收藏</a>
+							</li>
+							<li>
+								<a href="article.php?id=20">我的订单</a>
+							</li>
+							<li>
+								<a href="article.php?id=44">积分说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=6">购物须知</a>
+							</li>
+							<li>
+								<a href="article.php?id=40">订单处理知识</a>
+							</li>
+							<li>
+								<a href="article.php?id=41">订单状态说明</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="pwd">
+								<a href="article_cat.php?id=8">服务保证 </a>
+							</li>
+							<li>
+								<a href="article.php?id=45">退货说明</a>
+							</li>
+							<li>
+								<a href="article.php?id=46">退换货政策</a>
+							</li>
+						</ul>
+					</div>
+
+					<!--<div class="rg">
+                <ul>
+                    <li>
+                        <p>手机客户端</p>
+                        <div><img src="themes/hd/images/liantu.png" alt="中国农产品商城_手机客户端"></div>
+                    </li>
+                    <li>
+                        <p>微信公众号</p>
+                        <div><img src="themes/hd/images/liantu.png" alt="中国农产品商城_微信公众号"></div>
+                    </li>
+                </ul>
+            </div>-->
+				</div>
+			</div>
+
+			<div class="m-copy">
+				版权所有&nbsp;&nbsp;&copy;2016&nbsp;&nbsp;中国农产品商城&nbsp;&nbsp;&nbsp;&nbsp;ICP备案证书号:
+				<a href="//www.miibeian.gov.cn/" target="_blank">渝ICP备16006683号</a>
+			</div>
+		</div>
+		<div id="right_sidebar" style="display:none"></div>
+		<div style="display:none">共执行 8 个查询，用时 0.260188 秒，在线 39 人，Gzip 已禁用，占用内存 5.929 MB<img src="api/cron.php?t=1493146192" alt="" style="width:0px;height:0px;" /></div>
+		<script type="text/javascript">
+			function check_del(msg, url) {
+				jConfirm(msg, '温馨提示', function(r) {
+					if(r) {
+						window.location.href = url;
+					}
+				});
+			}
+			/*网站统计*/
+			$.ajax({
+				url: "stat.php",
+				type: "post",
+				data: 'act=visit&visit_times=99&lang=zh-CN,zh&domain=http://www.cnncp.net&path=/exchange.php&access_url=/article.php?id=52&access_domain=http://www.cnncp.net&time=1493144806&session_id=2750c7566af3ff8d4ddbdaf31b4d2504&user_id=0&goods_id=0&is_mobile=0',
+				async: true
+			});
+		</script>
+	</body>
+
+</html>

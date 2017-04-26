@@ -1,0 +1,212 @@
+/**标题的CSS**/
+
+.morehd {
+	text-align: center;
+	line-height: 30px;
+	margin-top: 5px;
+	display: none;
+}
+
+.morehd img {
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+.activity_list {
+	overflow: hidden;
+	height: 198px;
+}
+
+.gift_top20 {
+	margin-top: 20px;
+}
+
+.gift_v_tel {
+	height: 35px;
+	border: 1px solid #e5e5e5;
+	background: #f5f5f5;
+	line-height: 35px;
+	overflow: hidden;
+}
+
+.gift_w_tel {
+	font-size: 14px;
+	color: #464646;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.gift_v_r {
+	float: right;
+	padding-right: 10px;
+	color: #6b6b6b;
+}
+
+.gift_v_r a {
+	background: url(../images/jtx.jpg) no-repeat right center;
+	padding-right: 12px;
+	color: #6b6b6b;
+}
+
+.gift_v_r a.on {
+	background: url(../images/jts.jpg) no-repeat right center;
+}
+
+.gift_txt {
+	border: 1px solid #e5e5e5;
+	border-top: none;
+	padding: 10px 10px 10px 0px;
+}
+
+.gift_tleft {
+	float: left;
+	width: 507px;
+	position: relative;
+	min-height: 110px;
+	border-right: 1px solid #e5e5e5;
+	background: url(../images/mjsad.jpg) no-repeat left top;
+	padding: 10px 40px 0 190px;
+}
+
+.gift_tleft ul li {
+	line-height: 26px;
+	color: #696969;
+}
+
+.gift_tleft ul li span {
+	color: #df1a2b;
+	margin: 0 5px;
+}
+
+.gift_tleft2 {
+	float: left;
+	width: 507px;
+	position: relative;
+	min-height: 110px;
+	border-right: 1px solid #e5e5e5;
+	background: url(../images/mjjad.png) no-repeat left top;
+	padding: 10px 40px 0 190px;
+}
+
+.gift_tleft2 ul li {
+	line-height: 26px;
+	color: #696969;
+}
+
+.gift_tleft2 ul li span {
+	color: #df1a2b;
+	margin: 0 5px;
+}
+
+.gift_tright {
+	width: 420px;
+	float: left;
+	padding-left: 20px;
+}
+
+.gift_r_stel {
+	color: #df1a2b;
+	line-height: 30px;
+}
+
+.gift_rwen {
+	color: #696969;
+	line-height: 25px;
+}
+
+
+/**婊″氨閫佺殑浜у搧鍒楄〃**/
+
+.gift_goods {
+	padding: 20px 0 10px 0;
+	border: 1px solid #e5e5e5;
+	height: 230px;
+	border-top: none;
+	overflow: hidden;
+}
+
+.gift_goods ul li {
+	float: left;
+	width: 226px;
+	margin-left: 10px;
+	margin-bottom: 12px;
+}
+
+.gift_img {
+	float: left;
+	width: 82px;
+	height: 82px;
+}
+
+.gift_img img {
+	border: 1px solid #e5e5e5;
+	width: 80px;
+	height: 80px;
+}
+
+.gift_g_txt {
+	float: left;
+	margin-left: 4px;
+	width: 140px;
+	overflow: hidden;
+}
+
+.gift_gwen {
+	line-height: 15px;
+	color: #333333;
+}
+
+.gift_gwen a {
+	color: #333333;
+}
+
+.gift_gwen a:hover {
+	color: #cb0d13;
+}
+
+.gift_price {
+	padding-top: 2px;
+	color: #e12228;
+	font-weight: bold;
+}
+
+
+/**婊″氨閫佺殑鍒嗛〉**/
+
+.gift_page {
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 10px
+}
+
+.gift_p_gj {
+	margin-right: 10px;
+}
+
+.gift_p_dq {
+	margin-right: 30px;
+}
+
+.gift_page a {
+	margin: 0px 5px;
+	background: #f2f2f2;
+	border: 1px solid #dddddd;
+	padding: 2px 5px;
+}
+
+.gift_page a:hover {
+	background: #dfdbdb;
+}
+
+.gift_p_tz {
+	margin-left: 5px;
+}
+
+.gift_p_tz input {
+	height: 20px;
+	width: 33px;
+	border: 1px solid #dddddd;
+	margin: 0 5px;
+	text-align: center;
+}
